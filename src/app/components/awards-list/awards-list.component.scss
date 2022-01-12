@@ -1,0 +1,12 @@
+.award-list {
+  display: flex;
+  width: fit-content;
+}
+
+app-award-item:not(:first-child) {
+  margin: 6px;
+}
+
+app-award-item:first-child {
+ margin: 6px 6px 6px 0;
+}

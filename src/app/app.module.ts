@@ -13,6 +13,8 @@ import { TaskListsComponent } from './components/task-lists/task-lists.component
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AwardsComponent } from './components/awards/awards.component';
+import { AwardsListComponent } from './components/awards-list/awards-list.component';
+import { AwardItemComponent } from './components/award-item/award-item.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { AwardsComponent } from './components/awards/awards.component';
     HeaderComponent,
     TaskListsComponent,
     TaskItemComponent,
-    AwardsComponent
+    AwardsComponent,
+    AwardsListComponent,
+    AwardItemComponent
   ],
   imports: [
     BrowserModule,
