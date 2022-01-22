@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title">Hi there!</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="taskName">Task name:</label>
+      <input [(ngModel)]="newTask.name" type="email" name="taskName" class="form-control" id="taskName">
+    </div>
+    <div class="form-group">
+      <label for="taskDescription">Task description:</label>
+      <textarea [(ngModel)]="newTask.description" name="description" class="form-control" id="taskDescription" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

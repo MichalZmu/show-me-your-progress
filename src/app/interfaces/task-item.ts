@@ -1,4 +1,5 @@
 export interface TaskItem {
   name: string;
-  taskCompletionLevel: number;
+  description: string;
+  taskCompletionLevel?: number;
 }

@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AwardsComponent } from './components/awards/awards.component';
 import { AwardsListComponent } from './components/awards-list/awards-list.component';
 import { AwardItemComponent } from './components/award-item/award-item.component';
+import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { AwardItemComponent } from './components/award-item/award-item.component
     TaskItemComponent,
     AwardsComponent,
     AwardsListComponent,
-    AwardItemComponent
+    AwardItemComponent,
+    AddTaskModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { AwardItemComponent } from './components/award-item/award-item.component
     BrowserAnimationsModule,
     MatSliderModule,
     SidebarModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

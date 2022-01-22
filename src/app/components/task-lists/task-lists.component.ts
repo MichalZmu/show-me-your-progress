@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskItem} from '../../interfaces/task-item';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
+import {TaskService} from '../../services/task.service';
 
 @Component({
   selector: 'app-task-lists',
@@ -7,21 +10,16 @@ import {TaskItem} from '../../interfaces/task-item';
   styleUrls: ['./task-lists.component.scss']
 })
 export class TaskListsComponent implements OnInit {
-  taskList: TaskItem[] = [
-    {
-      name: 'Dni bez papierosów',
-      taskCompletionLevel: 22
-    },
-    {
-      name: 'Dni bez alkoholu',
-      taskCompletionLevel: 10
-    }
-  ];
+  taskList: TaskItem[];
 
-  constructor() {
+  constructor(private modalService: NgbModal, private taskService: TaskService) {
   }
 
   ngOnInit(): void {
+    this.taskList = this.taskService.getTasks();
   }
 
+  openModal(): void {
+    this.modalService.open(AddTaskModalComponent);
+  }
 }
