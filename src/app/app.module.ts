@@ -17,7 +17,9 @@ import { AwardsListComponent } from './components/awards-list/awards-list.compon
 import { AwardItemComponent } from './components/award-item/award-item.component';
 import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
 import {FormsModule} from '@angular/forms';
-import { TaskDetailsModalComponent } from './components/task-details-modal/task-details-modal.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { MainPageComponent } from './views/main-page/main-page.component';
+import { DefaultViewComponent } from './views/default-view/default-view.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { TaskDetailsModalComponent } from './components/task-details-modal/task-
     AwardsListComponent,
     AwardItemComponent,
     AddTaskModalComponent,
-    TaskDetailsModalComponent
+    TaskDetailsComponent,
+    MainPageComponent,
+    DefaultViewComponent,
   ],
   imports: [
     BrowserModule,

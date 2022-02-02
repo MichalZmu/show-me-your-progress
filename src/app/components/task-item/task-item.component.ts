@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TaskItem} from '../../interfaces/task-item';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {TaskDetailsModalComponent} from '../task-details-modal/task-details-modal.component';
 import {TaskItemModel} from '../../interfaces/task-item.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-task-item',
@@ -10,17 +8,17 @@ import {TaskItemModel} from '../../interfaces/task-item.model';
   styleUrls: ['./task-item.component.scss']
 })
 export class TaskItemComponent implements OnInit {
-  @Input() task: TaskItem;
+  @Input() task: TaskItemModel;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  openTaskDetails(task: TaskItemModel): void {
-    const modalRef = this.modalService.open(TaskDetailsModalComponent, {
-      size: 'xl'
-    });
-    modalRef.componentInstance.task = task;
+  goToTaskDetails(task: TaskItemModel): void {
+    console.log('task: ', task);
+
+    this.router.navigate(['/task-details'], {queryParams: {taskId: this.task.id}}).then();
   }
 }

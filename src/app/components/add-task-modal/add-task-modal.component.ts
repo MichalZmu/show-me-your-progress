@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal, NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {TaskItem} from '../../interfaces/task-item';
 import {TaskService} from '../../services/task.service';
 import {TaskItemModel} from '../../interfaces/task-item.model';
 

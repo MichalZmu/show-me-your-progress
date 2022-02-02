@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TaskItem} from '../../interfaces/task-item';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component';
 import {TaskService} from '../../services/task.service';
+import {TaskItemModel} from '../../interfaces/task-item.model';
 
 @Component({
   selector: 'app-task-lists',
@@ -10,7 +10,7 @@ import {TaskService} from '../../services/task.service';
   styleUrls: ['./task-lists.component.scss']
 })
 export class TaskListsComponent implements OnInit {
-  taskList: TaskItem[];
+  taskList: TaskItemModel[];
 
   constructor(private modalService: NgbModal, private taskService: TaskService) {
   }

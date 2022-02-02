@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'show-me-your-progress';
-  public _opened: boolean = true;
 }
