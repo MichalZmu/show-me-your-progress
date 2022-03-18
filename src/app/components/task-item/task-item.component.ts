@@ -16,9 +16,7 @@ export class TaskItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToTaskDetails(task: TaskItemModel): void {
-    console.log('task: ', task);
-
+  goToTaskDetails(): void {
     this.router.navigate(['/task-details'], {queryParams: {taskId: this.task.id}}).then();
   }
 }
