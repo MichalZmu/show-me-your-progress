@@ -25,8 +25,11 @@ export class TaskDetailsComponent implements OnInit {
     });
   }
 
-  getTask(id: number): void {
-    this.task = this.taskService.getTask(+id);
+  getTask(id: string): void {
+    this.taskService.getTask(id).subscribe(task => {
+      console.log('task: ', task);
+      this.task = task;
+    });
   }
 
   editData(flag: boolean): void {

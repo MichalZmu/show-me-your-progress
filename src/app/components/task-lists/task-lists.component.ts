@@ -18,7 +18,10 @@ export class TaskListsComponent implements OnInit {
 
   ngOnInit(): void {
     this.navigationService.setGoBackUrl(null);
-    this.taskList = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe(tasks => {
+      this.taskList = tasks;
+      console.log('taskList: ', this.taskList);
+    });
   }
 
   openModal(): void {

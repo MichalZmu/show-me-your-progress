@@ -1,11 +1,11 @@
 export class TaskItemModel {
-  id: number;
+  _id: string;
   name: string;
   description: string;
   taskCompletionLevel?: number;
 
   constructor(name: string = '', description: string = '') {
-    this.id = null;
+    this._id = null;
     this.name = name;
     this.description = description;
     this.taskCompletionLevel = 0;

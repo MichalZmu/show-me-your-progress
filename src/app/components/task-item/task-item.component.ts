@@ -17,6 +17,6 @@ export class TaskItemComponent implements OnInit {
   }
 
   goToTaskDetails(): void {
-    this.router.navigate(['/task-details'], {queryParams: {taskId: this.task.id}}).then();
+    this.router.navigate(['/task-details'], {queryParams: {taskId: this.task._id}}).then();
   }
 }
