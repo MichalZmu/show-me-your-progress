@@ -20,7 +20,6 @@ export class AddTaskModalComponent implements OnInit {
 
   onSubmit(): void {
     this.taskService.addTask(this.newTask).subscribe(data => console.log(data));
-
     this.activeModal.close();
   }
 }
