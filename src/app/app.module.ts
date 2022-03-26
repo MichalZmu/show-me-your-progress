@@ -20,6 +20,7 @@ import {FormsModule} from '@angular/forms';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { MainPageComponent } from './views/main-page/main-page.component';
 import { DefaultViewComponent } from './views/default-view/default-view.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DefaultViewComponent } from './views/default-view/default-view.componen
     MatSliderModule,
     SidebarModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

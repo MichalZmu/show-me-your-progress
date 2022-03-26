@@ -4,6 +4,7 @@ import {AddTaskModalComponent} from '../add-task-modal/add-task-modal.component'
 import {TaskService} from '../../services/task.service';
 import {TaskItemModel} from '../../interfaces/task-item.model';
 import {NavigationService} from '../../services/navigation.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-task-lists',
@@ -13,14 +14,18 @@ import {NavigationService} from '../../services/navigation.service';
 export class TaskListsComponent implements OnInit {
   taskList: TaskItemModel[];
 
-  constructor(private modalService: NgbModal, private taskService: TaskService, private navigationService: NavigationService) {
+  constructor(private modalService: NgbModal,
+              private taskService: TaskService,
+              private navigationService: NavigationService,
+              private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
+    this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe(tasks => {
       this.taskList = tasks;
-      console.log('taskList: ', this.taskList);
+      this.spinner.hide().then();
     });
   }
 
