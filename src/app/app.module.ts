@@ -21,6 +21,9 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
 import { MainPageComponent } from './views/main-page/main-page.component';
 import { DefaultViewComponent } from './views/default-view/default-view.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {TasksReducer} from './states/tasks/tasks.reducer';
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgbModule,
     FormsModule,
     NgxSpinnerModule,
+    StoreModule.forRoot({tasks: TasksReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent]

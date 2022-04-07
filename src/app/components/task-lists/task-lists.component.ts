@@ -5,6 +5,9 @@ import {TaskService} from '../../services/task.service';
 import {TaskItemModel} from '../../interfaces/task-item.model';
 import {NavigationService} from '../../services/navigation.service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {Store} from '@ngrx/store';
+import {getTasks} from '../../states/tasks/tasks.actions';
+import {selectTasks} from '../../states/tasks/tasks.selectors';
 
 @Component({
   selector: 'app-task-lists',
@@ -13,18 +16,21 @@ import {NgxSpinnerService} from 'ngx-spinner';
 })
 export class TaskListsComponent implements OnInit {
   taskList: TaskItemModel[];
+  books$ = this.store.select(selectTasks);
 
   constructor(private modalService: NgbModal,
               private taskService: TaskService,
               private navigationService: NavigationService,
-              private spinner: NgxSpinnerService) {
+              private spinner: NgxSpinnerService,
+              private store: Store) {
   }
 
   ngOnInit(): void {
-    this.spinner.show().then();
+    // this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe(tasks => {
       this.taskList = tasks;
+      this.store.dispatch(getTasks({ tasks }));
       this.spinner.hide().then();
     });
   }
