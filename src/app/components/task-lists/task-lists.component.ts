@@ -26,7 +26,7 @@ export class TaskListsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.spinner.show().then();
+    this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe(tasks => {
       this.taskList = tasks;

@@ -3,13 +3,4 @@ import {TaskItemModel} from '../../interfaces/task-item.model';
 
 export const getTasks = createAction('[Tasks] Get tasks',  props<{ tasks: ReadonlyArray<TaskItemModel> }>());
 
-export const getTasksSuccess = createAction(
-  '[Task] Get Tasks Success',
-  props<any>()
-);
-
-export const getTasksFailure = createAction(
-  '[Task] Get Tasks Failure',
-  props<{ any }>()
-);
-
+export const addTask = createAction('[Tasks] Add task',  props<{ task: TaskItemModel}>());
