@@ -42,4 +42,10 @@ export class TaskDetailsComponent implements OnInit {
     }));
   }
 
+  deleteData(): void {
+    this.taskService.deleteTask(this.task).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }
