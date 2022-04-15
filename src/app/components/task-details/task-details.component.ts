@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskItemModel} from '../../interfaces/task-item.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TaskService} from '../../services/task.service';
 import {NavigationService} from '../../services/navigation.service';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-task-details',
@@ -15,7 +16,9 @@ export class TaskDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private taskService: TaskService,
-              private navigationService: NavigationService) {
+              private navigationService: NavigationService,
+              private router: Router,
+              private store: Store) {
   }
 
   ngOnInit(): void {
@@ -23,11 +26,13 @@ export class TaskDetailsComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.getTask(params.taskId);
     });
+    this.store.subscribe(data => {
+      console.log('data: ', data);
+    })
   }
 
   getTask(id: string): void {
     this.taskService.getTask(id).subscribe(task => {
-      console.log('getTask: ', task);
       this.task = task[0];
     });
   }
@@ -45,6 +50,7 @@ export class TaskDetailsComponent implements OnInit {
   deleteData(): void {
     this.taskService.deleteTask(this.task).subscribe(data => {
       console.log(data);
+      this.router.navigateByUrl('/').then();
     });
   }
 
