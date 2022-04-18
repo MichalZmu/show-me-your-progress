@@ -7,7 +7,6 @@ import {NavigationService} from '../../services/navigation.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Store} from '@ngrx/store';
 import {getTasks} from '../../states/tasks/tasks.actions';
-import {selectTasks} from '../../states/tasks/tasks.selectors';
 
 @Component({
   selector: 'app-task-lists',
@@ -16,7 +15,6 @@ import {selectTasks} from '../../states/tasks/tasks.selectors';
 })
 export class TaskListsComponent implements OnInit {
   taskList: TaskItemModel[];
-  books$ = this.store.select(selectTasks);
 
   constructor(private modalService: NgbModal,
               private taskService: TaskService,
@@ -30,6 +28,8 @@ export class TaskListsComponent implements OnInit {
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe(tasks => {
       this.taskList = tasks;
+      localStorage.clear();
+      localStorage.setItem('tasks', JSON.stringify(tasks));
       this.store.dispatch(getTasks({ tasks }));
       this.spinner.hide().then();
     });
