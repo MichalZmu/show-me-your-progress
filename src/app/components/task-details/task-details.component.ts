@@ -26,17 +26,11 @@ export class TaskDetailsComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.getTask(params.taskId);
     });
-    this.store.pipe().subscribe(data => {
-      console.log('data: ', data);
-    });
   }
 
   getTask(id: string): void {
-    // this.taskService.getTask(id).subscribe(task => {
-    //   this.task = task[0];
-    // });
-    this.store.pipe().subscribe(data => {
-      // todo: selector do napisania
+    this.store.subscribe(data => {
+      this.task = data.tasks.find(elem => elem._id === id);
     });
   }
 
