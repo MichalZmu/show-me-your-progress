@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TaskService} from '../../services/task.service';
 import {NavigationService} from '../../services/navigation.service';
 import {Store} from '@ngrx/store';
+import {map, switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-task-details',
@@ -23,15 +25,15 @@ export class TaskDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.navigationService.setGoBackUrl('/');
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.getTask(params.taskId);
-    });
+
+    this.activatedRoute.queryParams.pipe(switchMap(params => this.getTask(params.taskId)))
+      .subscribe(data => {
+        this.task = data;
+      });
   }
 
-  getTask(id: string): void {
-    this.store.subscribe(data => {
-      this.task = data.tasks.find(elem => elem._id === id);
-    });
+  getTask(id: string): Observable<any> {
+    return this.store.pipe(map((data: {tasks: [{_id: any}]}) => data.tasks.find(elem => elem._id === id)));
   }
 
   editData(flag: boolean): void {
