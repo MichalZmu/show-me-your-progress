@@ -1,5 +1,4 @@
 <div *ngIf="task" class="task p-4 mb-4" (click)="goToTaskDetails()">
   <h3>{{task.name}}</h3>
-  <p>Percentage of completion: {{task.taskCompletionLevel}} / 100</p>
-  <ngb-progressbar type="danger" [value]="task.taskCompletionLevel" [striped]="true"></ngb-progressbar>
+  <p>Task status: {{taskStatus}}</p>
 </div>

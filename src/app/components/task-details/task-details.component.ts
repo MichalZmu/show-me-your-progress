@@ -41,9 +41,7 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   updateData(): void {
-    this.taskService.updateTask(this.task).subscribe((data => {
-      console.log(data);
-    }));
+    this.taskService.updateTask(this.task).subscribe();
   }
 
   deleteData(): void {
