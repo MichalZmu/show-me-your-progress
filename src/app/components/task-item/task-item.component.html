@@ -1,4 +1,11 @@
 <div *ngIf="task" class="task p-4 mb-4" (click)="goToTaskDetails()">
-  <h3>{{task.name}}</h3>
-  <p>Task status: {{taskStatus}}</p>
+  <div class="task__details">
+    <h3>{{task.name}}</h3>
+    <p>Task status: {{taskStatus}}</p>
+  </div>
+  <div (click)="$event.stopPropagation()" class="task__status-container d-flex justify-content-center">
+    <button *ngIf="showStatusButtonToDo" (click)="changeStatus(taskStatuses.ToDo);" class="btn btn-primary mr-1">To do</button>
+    <button *ngIf="showStatusButtonInProgress" (click)="changeStatus(taskStatuses.InProgress)" class="btn btn-warning mr-1">In progress</button>
+    <button *ngIf="showStatusButtonDone" (click)="changeStatus(taskStatuses.Done)" class="btn btn-success ml-1">Done</button>
+  </div>
 </div>

@@ -8,4 +8,5 @@ export const TasksReducer = createReducer(
   initialState,
   on(tasksActions.getTasks, (state, {tasks}) => tasks),
   on(tasksActions.addTask, (state, {task}) => [...state, task]),
+  on(tasksActions.updateTask, (state, {task}) => state.map((value) => value._id === task._id ? value = task : value))
 );

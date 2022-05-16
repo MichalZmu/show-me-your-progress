@@ -30,8 +30,11 @@ export class TaskListsComponent implements OnInit {
       this.taskList = tasks;
       localStorage.clear();
       localStorage.setItem('tasks', JSON.stringify(tasks));
-      this.store.dispatch(getTasks({ tasks }));
+      this.store.dispatch(getTasks({tasks}));
       this.spinner.hide().then();
+    });
+    this.store.subscribe((data: { tasks: TaskItemModel[] }) => {
+      this.taskList = data.tasks;
     });
   }
 

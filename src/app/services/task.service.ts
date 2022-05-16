@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class TaskService {
 
-  private readonly apiUrl = 'https://show-me-your-progress-backend.herokuapp.com/api';
+  private readonly apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {
   }
