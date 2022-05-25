@@ -6,6 +6,7 @@ import {NavigationService} from '../../services/navigation.service';
 import {Store} from '@ngrx/store';
 import {map, switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {TaskStatuses} from '../../interfaces/task-statuses';
 
 @Component({
   selector: 'app-task-details',
@@ -15,6 +16,7 @@ import {Observable} from 'rxjs';
 export class TaskDetailsComponent implements OnInit {
   task: TaskItemModel;
   readOnly = true;
+  readonly statuses = Object.values(TaskStatuses).slice(0, 3);
 
   constructor(private activatedRoute: ActivatedRoute,
               private taskService: TaskService,
@@ -42,6 +44,7 @@ export class TaskDetailsComponent implements OnInit {
 
   updateData(): void {
     this.taskService.updateTask(this.task).subscribe();
+    this.readOnly = true;
   }
 
   deleteData(): void {

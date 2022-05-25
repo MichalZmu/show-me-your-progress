@@ -12,7 +12,12 @@
     <button *ngIf="readOnly" class="btn btn-info" (click)="editData(true)">Edit</button>
     <button *ngIf="!readOnly" class="btn btn-success" (click)="updateData()">Save</button>
     <button *ngIf="!readOnly" class="btn btn-danger ml-2" (click)="deleteData()">Delete</button>
-
+    <div class="form-group">
+      <label for="taskStatus">Task description:</label>
+      <select name="cars" id="taskStatus">
+        <option *ngFor="let status of statuses; let index = index" [value]="index">{{status}}</option>
+      </select>
+    </div>
   </form>
 </div>
 
