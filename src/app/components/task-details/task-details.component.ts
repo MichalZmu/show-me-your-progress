@@ -7,6 +7,7 @@ import {Store} from '@ngrx/store';
 import {map, switchMap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {TaskStatuses} from '../../interfaces/task-statuses';
+import {AppState} from '../../states/app.state';
 
 @Component({
   selector: 'app-task-details',
@@ -22,7 +23,7 @@ export class TaskDetailsComponent implements OnInit {
               private taskService: TaskService,
               private navigationService: NavigationService,
               private router: Router,
-              private store: Store) {
+              private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -35,7 +36,10 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   getTask(id: string): Observable<any> {
-    return this.store.pipe(map((data: {tasks: [{_id: any}]}) => data.tasks.find(elem => elem._id === id)));
+    // return this.store.pipe(map((data: {tasks: [{_id: any}]}) => data.tasks.find(elem => elem._id === id)));
+    return this.store.select(store => {
+      console.log('store: ', store);
+    });
   }
 
   editData(flag: boolean): void {
@@ -52,6 +56,10 @@ export class TaskDetailsComponent implements OnInit {
       console.log(data);
       this.router.navigateByUrl('/').then();
     });
+  }
+
+  testChange(): void {
+    console.log(this.task);
   }
 
 }

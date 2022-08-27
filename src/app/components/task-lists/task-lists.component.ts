@@ -6,7 +6,8 @@ import {TaskItemModel} from '../../interfaces/task-item.model';
 import {NavigationService} from '../../services/navigation.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {Store} from '@ngrx/store';
-import {getTasks} from '../../states/tasks/tasks.actions';
+import {getTasks, setTasks} from '../../states/tasks/tasks.actions';
+import {AppState} from '../../states/app.state';
 
 @Component({
   selector: 'app-task-lists',
@@ -20,22 +21,24 @@ export class TaskListsComponent implements OnInit {
               private taskService: TaskService,
               private navigationService: NavigationService,
               private spinner: NgxSpinnerService,
-              private store: Store) {
+              private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
     this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe(tasks => {
-      this.taskList = tasks;
       localStorage.clear();
       localStorage.setItem('tasks', JSON.stringify(tasks));
-      this.store.dispatch(getTasks({tasks}));
+      this.store.dispatch(setTasks({tasks}));
       this.spinner.hide().then();
     });
-    this.store.subscribe((data: { tasks: TaskItemModel[] }) => {
+
+    this.store.select('tasks').subscribe(data => {
+      console.log('data', data);
       this.taskList = data.tasks;
     });
+
   }
 
   openModal(): void {

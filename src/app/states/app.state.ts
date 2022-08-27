@@ -1,18 +1,7 @@
-import {initialReservationsState} from './tasks/tasks.state';
 import {TaskItemModel} from '../interfaces/task-item.model';
-
-interface InitialAppState {
-  reservations: TaskItemModel[];
-}
-
-export const initialAppState: InitialAppState = {
-  reservations: initialReservationsState,
-}
-
-export function getInitialState(): InitialAppState {
-  return initialAppState;
-}
+import {createFormGroupState} from 'ngrx-forms';
+import {TaskStatuses} from '../interfaces/task-statuses';
 
 export interface AppState {
-  tasks: ReadonlyArray<TaskItemModel>;
+  tasks: TaskItemModel[];
 }
