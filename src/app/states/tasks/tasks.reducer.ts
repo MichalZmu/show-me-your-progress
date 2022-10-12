@@ -13,11 +13,13 @@ export const TasksReducer = createReducer(
   on(tasksActions.getTasks, (state, {tasks}) => {
     return {tasks};
   }),
-  on(tasksActions.addTask, (state, task) => [...state.tasks, task]),
-  on(tasksActions.updateTask, (state, {task}) => {
-    state.tasks.map((value) => value._id === task._id ? value = task : value);
+  on(tasksActions.addTask, (state, action) => {
+    return {tasks: [...state.tasks, action.task]};
   }),
-  on(tasksActions.setTasks, (state, {tasks}) => {
-    return {tasks};
-  })
+  on(tasksActions.updateTask, (state, action) => {
+    return {tasks: state.tasks.map((value) => value._id === action.task._id ? value = action.task : value)};
+  }),
+  on(tasksActions.setTasks, (state, action) => {
+    return {tasks: [...state.tasks, ...action.tasks]};
+    })
 );

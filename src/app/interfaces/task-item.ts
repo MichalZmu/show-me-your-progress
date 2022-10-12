@@ -1,6 +1,6 @@
 export interface TaskItem {
-  id: number;
-  name: string;
-  description: string;
-  taskCompletionLevel?: number;
+    id: number
+    name: string
+    description: string
+    taskCompletionLevel?: number
 }

@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'app-default-view',
-  templateUrl: './default-view.component.html',
-  styleUrls: ['./default-view.component.scss']
+    selector: 'app-default-view',
+    templateUrl: './default-view.component.html',
+    styleUrls: ['./default-view.component.scss'],
 })
 export class DefaultViewComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

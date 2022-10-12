@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { AddTaskModalComponent } from './add-task-modal.component';
+import { AddTaskModalComponent } from './add-task-modal.component'
 
 describe('AddTaskModalComponent', () => {
-  let component: AddTaskModalComponent;
-  let fixture: ComponentFixture<AddTaskModalComponent>;
+    let component: AddTaskModalComponent
+    let fixture: ComponentFixture<AddTaskModalComponent>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AddTaskModalComponent ]
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [AddTaskModalComponent],
+        }).compileComponents()
+    }))
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AddTaskModalComponent)
+        component = fixture.componentInstance
+        fixture.detectChanges()
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AddTaskModalComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
+})

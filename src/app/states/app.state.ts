@@ -1,7 +1,6 @@
-import {TaskItemModel} from '../interfaces/task-item.model';
-import {createFormGroupState} from 'ngrx-forms';
-import {TaskStatuses} from '../interfaces/task-statuses';
+import { TaskItemModel } from '../interfaces/task-item.model'
+
 
 export interface AppState {
-  tasks: TaskItemModel[];
+    tasks: TaskItemModel[];
 }

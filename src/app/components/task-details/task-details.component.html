@@ -1,24 +1,55 @@
 <div class="container">
-  <form *ngIf="task" (change)="testChange()">
-    <div class="form-group mt-2">
-      <label class="mr-2" for="taskStatus">Task status:</label>
-      <select name="cars" id="taskStatus" [(ngModel)]="task.status">
-        <option *ngFor="let status of statuses; let index = index" [value]="index">{{status}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="taskName">Task name:</label>
-      <input name="taskName" [(ngModel)]="task.name" [readOnly]="readOnly" type="text" class="form-control" id="taskName">
-    </div>
-    <div class="form-group">
-      <label for="taskDescription">Task description:</label>
-      <textarea name="description" [(ngModel)]="task.description" [readOnly]="readOnly" class="form-control"
-                id="taskDescription" rows="3"></textarea>
-    </div>
-    <button *ngIf="readOnly" class="btn btn-info" (click)="editData(true)">Edit</button>
-    <button *ngIf="!readOnly" class="btn btn-success" (click)="updateData()">Save</button>
-    <button *ngIf="!readOnly" class="btn btn-danger ml-2" (click)="deleteData()">Delete</button>
-  </form>
-  {{this.task | json}}
+    <form *ngIf="task" (change)="testChange()">
+        <div class="form-group mt-2">
+            <label class="mr-2" for="taskStatus">Task status:</label>
+            <select name="cars" id="taskStatus" [(ngModel)]="task.status">
+                <option
+                    *ngFor="let status of statuses; let index = index"
+                    [value]="index"
+                >
+                    {{ status }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="taskName">Task name:</label>
+            <input
+                name="taskName"
+                [(ngModel)]="task.name"
+                [readOnly]="readOnly"
+                type="text"
+                class="form-control"
+                id="taskName"
+            />
+        </div>
+        <div class="form-group">
+            <label for="taskDescription">Task description:</label>
+            <textarea
+                name="description"
+                [(ngModel)]="task.description"
+                [readOnly]="readOnly"
+                class="form-control"
+                id="taskDescription"
+                rows="3"
+            ></textarea>
+        </div>
+        <button *ngIf="readOnly" class="btn btn-info" (click)="editData(true)">
+            Edit
+        </button>
+        <button
+            *ngIf="!readOnly"
+            class="btn btn-success"
+            (click)="updateData()"
+        >
+            Save
+        </button>
+        <button
+            *ngIf="!readOnly"
+            class="btn btn-danger ml-2"
+            (click)="deleteData()"
+        >
+            Delete
+        </button>
+    </form>
+    {{ this.task | json }}
 </div>
-
