@@ -14,6 +14,6 @@ export const updateTask = createAction(
     props<{ task: TaskItemModel }>()
 );
 export const setTasks = createAction(
-  '[Tasks] update task',
-  props<{ tasks: TaskItemModel[] }>()
+    '[Tasks] update task',
+    props<{ tasks: TaskItemModel[] }>()
 );

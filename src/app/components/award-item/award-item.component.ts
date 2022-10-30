@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-award-item',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core'
     styleUrls: ['./award-item.component.scss'],
 })
 export class AwardItemComponent implements OnInit {
-    @Input() award: any
+    @Input() award: any;
 
     constructor() {}
 

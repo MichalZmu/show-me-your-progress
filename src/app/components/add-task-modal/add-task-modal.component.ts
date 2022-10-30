@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core'
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
-import { TaskService } from '../../services/task.service'
-import { TaskItemModel } from '../../interfaces/task-item.model'
-import { Store } from '@ngrx/store'
-import { addTask } from '../../states/tasks/tasks.actions'
+import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TaskService } from '../../services/task.service';
+import { TaskItemModel } from '../../interfaces/task-item.model';
+import { Store } from '@ngrx/store';
+import { addTask } from '../../states/tasks/tasks.actions';
 
 @Component({
     selector: 'app-add-task-modal',
@@ -24,12 +24,10 @@ export class AddTaskModalComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this.taskService
-            .addTask(this.newTask)
-            .subscribe((data) => {
-              console.log(data);
-              this.store.dispatch(addTask({ task: this.newTask }));
-              this.activeModal.close();
-            });
+        this.taskService.addTask(this.newTask).subscribe((data) => {
+            console.log(data);
+            this.store.dispatch(addTask({ task: this.newTask }));
+            this.activeModal.close();
+        });
     }
 }

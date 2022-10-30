@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-awards-list',
@@ -13,7 +13,7 @@ export class AwardsListComponent implements OnInit {
         {
             name: 'godziny gry w gry komputerowe',
         },
-    ]
+    ];
 
     constructor() {}
 
