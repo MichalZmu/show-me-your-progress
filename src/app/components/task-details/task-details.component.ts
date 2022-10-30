@@ -8,6 +8,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TaskStatuses } from '../../interfaces/task-statuses';
 import { AppState } from '../../states/app.state';
+import { deleteTask, updateTask } from '../../states/tasks/tasks.actions';
 
 @Component({
     selector: 'app-task-details',
@@ -56,7 +57,7 @@ export class TaskDetailsComponent implements OnInit {
 
     deleteData(): void {
         this.taskService.deleteTask(this.task).subscribe((data) => {
-            console.log(data);
+            this.store.dispatch(deleteTask({ task: this.task }));
             this.router.navigateByUrl('/').then();
         });
     }

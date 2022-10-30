@@ -33,23 +33,29 @@
                 rows="3"
             ></textarea>
         </div>
-        <button *ngIf="readOnly" class="btn btn-info" (click)="editData(true)">
-            Edit
-        </button>
-        <button
-            *ngIf="!readOnly"
-            class="btn btn-success"
-            (click)="updateData()"
-        >
-            Save
-        </button>
-        <button
-            *ngIf="!readOnly"
-            class="btn btn-danger ml-2"
-            (click)="deleteData()"
-        >
-            Delete
-        </button>
+        <div class="tasks-buttons">
+            <button
+                *ngIf="readOnly"
+                class="btn btn-info"
+                (click)="editData(true)"
+            >
+                Edit
+            </button>
+            <button
+                *ngIf="!readOnly"
+                class="btn btn-success"
+                (click)="updateData()"
+            >
+                Save
+            </button>
+            <button
+                *ngIf="!readOnly"
+                class="btn btn-danger ml-2"
+                (click)="deleteData()"
+            >
+                Delete
+            </button>
+        </div>
     </form>
     {{ this.task | json }}
 </div>

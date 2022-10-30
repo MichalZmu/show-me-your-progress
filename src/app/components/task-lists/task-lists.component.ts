@@ -36,9 +36,9 @@ export class TaskListsComponent implements OnInit {
             this.taskList = tasks;
         });
 
-        this.store.select('tasks').subscribe((data) => {
+        this.store.subscribe((data) => {
             console.log('pobieram dane ');
-            console.log('data: ', data);
+            console.log('data ze stora: ', data);
             this.taskList = data.tasks;
         });
     }

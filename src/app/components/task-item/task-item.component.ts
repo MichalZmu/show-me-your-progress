@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { TaskStatuses } from '../../interfaces/task-statuses';
 import { TaskService } from '../../services/task.service';
 import { Store } from '@ngrx/store';
-import { updateTask } from '../../states/tasks/tasks.actions';
+import { deleteTask, updateTask } from '../../states/tasks/tasks.actions';
 
 @Component({
     selector: 'app-task-item',
@@ -65,6 +65,8 @@ export class TaskItemComponent implements OnInit {
     }
 
     deleteTask(): void {
-        this.taskService.deleteTask(this.task).subscribe();
+        this.taskService.deleteTask(this.task).subscribe(() => {
+            this.store.dispatch(deleteTask({ task: this.task }));
+        });
     }
 }
