@@ -1,3 +1,3 @@
-import { TaskItemModel } from '../../interfaces/task-item.model'
+import { TaskItemModel } from '../../interfaces/task-item.model';
 
-export const initialReservationsState: TaskItemModel[] = []
+export const initialReservationsState: TaskItemModel[] = [];

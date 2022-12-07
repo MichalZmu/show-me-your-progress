@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core'
-import { TaskItemModel } from '../interfaces/task-item.model'
-import { HttpClient, HttpParams } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { Injectable } from '@angular/core';
+import { TaskItemModel } from '../interfaces/task-item.model';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class TaskService {
-    private readonly apiUrl = 'http://localhost:3000/api'
+    private readonly apiUrl = 'http://localhost:3000/api';
 
     constructor(private http: HttpClient) {}
 
@@ -25,10 +25,16 @@ export class TaskService {
     }
 
     updateTask(task: TaskItemModel): Observable<any> {
-        return this.http.post<TaskItemModel>(`${this.apiUrl}/task/update`, task);
+        return this.http.post<TaskItemModel>(
+            `${this.apiUrl}/task/update`,
+            task
+        );
     }
 
     deleteTask(task: TaskItemModel): Observable<any> {
-        return this.http.post<TaskItemModel>(`${this.apiUrl}/task/delete`, task);
+        return this.http.post<TaskItemModel>(
+            `${this.apiUrl}/task/delete`,
+            task
+        );
     }
 }

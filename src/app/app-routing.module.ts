@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { TaskDetailsComponent } from './components/task-details/task-details.component'
-import { MainPageComponent } from './views/main-page/main-page.component'
-import { DefaultViewComponent } from './views/default-view/default-view.component'
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { MainPageComponent } from './views/main-page/main-page.component';
+import { DefaultViewComponent } from './views/default-view/default-view.component';
 
 const routes: Routes = [
     {
@@ -19,7 +19,7 @@ const routes: Routes = [
             },
         ],
     },
-]
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
