@@ -35,15 +35,18 @@ export class TaskDetailsComponent implements OnInit {
             .pipe(switchMap((params) => this.getTask(params.taskId)))
             .subscribe((data) => {
                 console.log('task: ', data);
-                // this.task = data
+                // @ts-ignore
+                this.task = data;
             });
     }
 
     getTask(id: string): any {
         // return this.store.pipe(map((data: {tasks: [{_id: any}]}) => data.tasks.find(elem => elem._id === id)));
-        // return this.store.select((store) => {
-        //     console.log('store: ', store)
-        // })
+        return this.store.select('tasks').pipe(map(data => {
+          // @ts-ignore
+          return data.tasks.find(elem => elem._id === id);
+        }));
+
     }
 
     editData(flag: boolean): void {

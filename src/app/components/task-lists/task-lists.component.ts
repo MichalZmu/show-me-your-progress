@@ -6,7 +6,7 @@ import {TaskItemModel} from '../../interfaces/task-item.model'
 import {NavigationService} from '../../services/navigation.service'
 import {NgxSpinnerService} from 'ngx-spinner'
 import {Store} from '@ngrx/store'
-import {getTasks, setTasks} from '../../states/tasks/tasks.actions'
+import {setTasks} from '../../states/tasks/tasks.actions'
 import {AppState} from '../../states/app.state'
 
 @Component({
@@ -30,6 +30,7 @@ export class TaskListsComponent implements OnInit {
     this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe((tasks) => {
+      console.log('get task: ', tasks);
       localStorage.clear();
       localStorage.setItem('tasks', JSON.stringify(tasks));
       this.store.dispatch(setTasks({tasks}));
@@ -39,6 +40,7 @@ export class TaskListsComponent implements OnInit {
 
     // @ts-ignore
     this.store.select('tasks').subscribe((data: {tasks: TaskItemModel[]}) => {
+      console.log('store select: ', data);
       this.taskList = data.tasks;
     });
   }

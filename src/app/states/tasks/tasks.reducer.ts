@@ -10,9 +10,6 @@ export const initialState: AppState = {
 
 export const TasksReducer = createReducer(
   initialState,
-  on(tasksActions.getTasks, (state, {tasks}) => {
-    return {tasks};
-  }),
   on(tasksActions.addTask, (state, action) => {
     console.log('action: ', action);
     return {tasks: [...state.tasks, action.task]};
