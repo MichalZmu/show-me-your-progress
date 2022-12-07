@@ -6,14 +6,18 @@ export const getTasks = createAction(
     props<{ tasks: ReadonlyArray<TaskItemModel> }>()
 );
 export const addTask = createAction(
-    '[Tasks] Add task',
+    '[Tasks] Added task',
     props<{ task: TaskItemModel }>()
 );
 export const updateTask = createAction(
-    '[Tasks] update task',
+    '[Tasks] Update task',
     props<{ task: TaskItemModel }>()
 );
 export const setTasks = createAction(
-  '[Tasks] update task',
+  '[Tasks] Set task',
   props<{ tasks: TaskItemModel[] }>()
+);
+export const deleteTask = createAction(
+  '[Tasks] Delete task',
+  props<{ task: TaskItemModel }>()
 );

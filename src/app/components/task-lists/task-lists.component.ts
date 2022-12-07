@@ -35,11 +35,10 @@ export class TaskListsComponent implements OnInit {
       this.store.dispatch(setTasks({tasks}));
       this.spinner.hide().then();
       this.taskList = tasks;
-    })
+    });
 
-    this.store.select('tasks').subscribe((data) => {
-      console.log('pobieram dane ');
-      console.log('data: ', data);
+    // @ts-ignore
+    this.store.select('tasks').subscribe((data: {tasks: TaskItemModel[]}) => {
       this.taskList = data.tasks;
     });
   }

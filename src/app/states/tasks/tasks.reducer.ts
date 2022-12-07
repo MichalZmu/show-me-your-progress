@@ -14,12 +14,21 @@ export const TasksReducer = createReducer(
     return {tasks};
   }),
   on(tasksActions.addTask, (state, action) => {
+    console.log('action: ', action);
     return {tasks: [...state.tasks, action.task]};
   }),
   on(tasksActions.updateTask, (state, action) => {
     return {tasks: state.tasks.map((value) => value._id === action.task._id ? value = action.task : value)};
   }),
   on(tasksActions.setTasks, (state, action) => {
-    return {tasks: [...state.tasks, ...action.tasks]};
-    })
+    return {tasks: [...action.tasks]};
+    }),
+  on(tasksActions.deleteTask, (state, action) => {
+    const index = state.tasks.indexOf(action.task);
+    const tasksCopy =  [...state.tasks];
+    if (index !== -1) {
+      tasksCopy.splice(index, 1);
+    }
+    return {tasks: tasksCopy};
+  })
 );
