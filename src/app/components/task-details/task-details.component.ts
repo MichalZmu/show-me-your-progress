@@ -33,20 +33,13 @@ export class TaskDetailsComponent implements OnInit {
 
         this.activatedRoute.queryParams
             .pipe(switchMap((params) => this.getTask(params.taskId)))
-            .subscribe((data) => {
-                console.log('task: ', data);
-                // @ts-ignore
+            .subscribe((data: TaskItemModel) => {
                 this.task = data;
             });
     }
 
     getTask(id: string): any {
-        // return this.store.pipe(map((data: {tasks: [{_id: any}]}) => data.tasks.find(elem => elem._id === id)));
-        return this.store.select('tasks').pipe(map(data => {
-          // @ts-ignore
-          return data.tasks.find(elem => elem._id === id);
-        }));
-
+        return this.taskService.getTask(id);
     }
 
     editData(flag: boolean): void {
@@ -54,7 +47,9 @@ export class TaskDetailsComponent implements OnInit {
     }
 
     updateData(): void {
-        this.taskService.updateTask(this.task).subscribe();
+        this.taskService.updateTask(this.task).subscribe(() => {
+          this.store.dispatch(updateTask({task: this.task}));
+        });
         this.readOnly = true;
     }
 
@@ -63,9 +58,5 @@ export class TaskDetailsComponent implements OnInit {
             this.store.dispatch(deleteTask({ task: this.task }));
             this.router.navigateByUrl('/').then();
         });
-    }
-
-    testChange(): void {
-        console.log(this.task);
     }
 }
