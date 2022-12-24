@@ -2,7 +2,7 @@
     <form *ngIf="task">
         <div class="form-group mt-2">
             <label class="mr-2" for="taskStatus">Task status:</label>
-            <select name="cars" id="taskStatus" [(ngModel)]="task.status" [disabled]="readOnly"
+            <select name="cars" id="taskStatus" (change)="updateData(false)" [(ngModel)]="task.status" [disabled]="readOnly"
             >
                 <option
                     *ngFor="let status of statuses; let index = index"
