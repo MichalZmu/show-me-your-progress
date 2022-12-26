@@ -24,6 +24,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { StoreModule } from '@ngrx/store';
 import { TasksReducer } from './states/tasks/tasks.reducer';
 import { NgrxFormsModule } from 'ngrx-forms';
+import { TaskStatsComponent } from './components/task-stats/task-stats.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { NgrxFormsModule } from 'ngrx-forms';
         TaskDetailsComponent,
         MainPageComponent,
         DefaultViewComponent,
+        TaskStatsComponent,
     ],
     imports: [
         BrowserModule,

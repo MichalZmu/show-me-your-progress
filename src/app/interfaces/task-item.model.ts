@@ -5,11 +5,13 @@ export class TaskItemModel {
     name: string;
     description: string;
     status: TaskStatuses;
+    finishedDate?: Date;
 
     constructor(name: string = '', description: string = '') {
         this._id = null;
         this.name = name;
         this.description = description;
         this.status = TaskStatuses.ToDo;
+        this.finishedDate = null;
     }
 }

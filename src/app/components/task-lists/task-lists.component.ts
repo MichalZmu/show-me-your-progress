@@ -30,7 +30,6 @@ export class TaskListsComponent implements OnInit {
     this.spinner.show().then();
     this.navigationService.setGoBackUrl(null);
     this.taskService.getTasks().subscribe((tasks) => {
-      console.log('get task: ', tasks);
       localStorage.clear();
       localStorage.setItem('tasks', JSON.stringify(tasks));
       this.store.dispatch(setTasks({tasks}));
@@ -40,7 +39,6 @@ export class TaskListsComponent implements OnInit {
 
     // @ts-ignore
     this.store.select('tasks').subscribe((data: {tasks: TaskItemModel[]}) => {
-      console.log('store select: ', data);
       this.taskList = data.tasks;
     });
   }
