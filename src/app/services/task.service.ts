@@ -39,8 +39,8 @@ export class TaskService {
     }
 
     getNumberOfTaskFinishedToday(): Observable<TaskItemModel[]> {
-      return this.http.get<TaskItemModel[]>(
-        `${this.apiUrl}/task/todayFinishedTasks`
-      );
+        return this.http.get<TaskItemModel[]>(
+            `${this.apiUrl}/task/todayFinishedTasks`
+        );
     }
 }

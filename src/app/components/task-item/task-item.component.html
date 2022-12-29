@@ -29,12 +29,9 @@
             Done
         </button>
     </div>
-  <div (click)="$event.stopPropagation()" class="d-flex justify-content-end">
-    <button
-      (click)="deleteTask(task)"
-      class="btn btn-danger ml-1"
-    >
-      Delete task
-    </button>
-  </div>
+    <div (click)="$event.stopPropagation()" class="d-flex justify-content-end">
+        <button (click)="deleteTask(task)" class="btn btn-danger ml-1">
+            Delete task
+        </button>
+    </div>
 </div>

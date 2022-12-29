@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from "../../services/task.service";
+import { TaskService } from '../../services/task.service';
 
 @Component({
-  selector: 'app-task-stats',
-  templateUrl: './task-stats.component.html',
-  styleUrls: ['./task-stats.component.scss']
+    selector: 'app-task-stats',
+    templateUrl: './task-stats.component.html',
+    styleUrls: ['./task-stats.component.scss'],
 })
 export class TaskStatsComponent implements OnInit {
-  numberOfTaskFinishedToday: number;
+    numberOfTaskFinishedToday: number;
 
-  constructor(private taskService: TaskService) { }
+    constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void {
-    this.taskService.getNumberOfTaskFinishedToday().subscribe(data => {
-      this.numberOfTaskFinishedToday = data.length;
-    })
-  }
-
+    ngOnInit(): void {
+        this.taskService.getNumberOfTaskFinishedToday().subscribe((data) => {
+            this.numberOfTaskFinishedToday = data.length;
+        });
+    }
 }

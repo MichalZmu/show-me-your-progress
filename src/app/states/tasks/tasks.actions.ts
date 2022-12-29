@@ -10,10 +10,14 @@ export const updateTask = createAction(
     props<{ task: TaskItemModel }>()
 );
 export const setTasks = createAction(
-  '[Tasks] Set task',
-  props<{ tasks: TaskItemModel[] }>()
+    '[Tasks] Set task',
+    props<{ tasks: TaskItemModel[] }>()
 );
 export const deleteTask = createAction(
-  '[Tasks] Delete task',
-  props<{ task: TaskItemModel }>()
+    '[Tasks] Delete task',
+    props<{ task: TaskItemModel }>()
+);
+export const setNumberOfTasksFinishedToday = createAction(
+    '[Tasks] Set number of tasks finished today',
+    props<{ numberOfTasks: number }>()
 );
