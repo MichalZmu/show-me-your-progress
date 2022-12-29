@@ -40,7 +40,7 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   getTask(id: string): any {
-    return this.taskService.getTask(id);
+    return this.taskService.getTask(idl);
   }
 
   editData(flag: boolean): void {
@@ -51,6 +51,7 @@ export class TaskDetailsComponent implements OnInit {
     this.taskService.updateTask(this.task).subscribe(() => {
       this.store.dispatch(updateTask({task: this.task}));
     });
+    this.taskService.getNumberOfTaskFinishedToday().subscribe();
     if (readOnly) {
       this.readOnly = true;
     }

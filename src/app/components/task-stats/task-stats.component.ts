@@ -13,7 +13,6 @@ export class TaskStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.getNumberOfTaskFinishedToday().subscribe(data => {
-      console.log('getNumberOfTaskFinishedToday: ', data);
       this.numberOfTaskFinishedToday = data.length;
     })
   }
