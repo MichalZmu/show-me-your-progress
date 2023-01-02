@@ -1,4 +1,20 @@
-import { createFeatureSelector } from '@ngrx/store';
-import { TaskItemModel } from '../../interfaces/task-item.model';
+import { createSelector } from '@ngrx/store';
+import { TaskState } from '../app.state';
 
-// export const selectTasks = createFeatureSelector<TaskItemModel[]>('tasks');
+export interface AppState {
+    tasks: TaskState;
+}
+
+export const selectTaskState = (state: AppState) => state.tasks;
+
+export const selectNumberOfTask = createSelector(
+    selectTaskState,
+    (state: TaskState) => {
+        return state.numberOfTasksFinishedToday;
+    }
+);
+
+export const selectTasks = createSelector(
+    selectTaskState,
+    (state: TaskState) => state.tasks
+);

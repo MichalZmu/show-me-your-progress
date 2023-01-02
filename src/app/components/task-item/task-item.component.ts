@@ -4,7 +4,12 @@ import { Router } from '@angular/router';
 import { TaskStatuses } from '../../interfaces/task-statuses';
 import { TaskService } from '../../services/task.service';
 import { Store } from '@ngrx/store';
-import { deleteTask, updateTask } from '../../states/tasks/tasks.actions';
+import {
+    deleteTask,
+    setNumberOfTasksFinishedToday,
+    updateTask,
+} from '../../states/tasks/tasks.actions';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-task-item',
@@ -52,16 +57,26 @@ export class TaskItemComponent implements OnInit {
     }
 
     changeStatus(status: number): void {
-        console.log('change status');
         const updatedTask = JSON.parse(
             JSON.stringify(this.task)
         ) as TaskItemModel;
         updatedTask.status = status;
+
         this.taskService
             .updateTask(updatedTask)
-            .subscribe(() =>
-                this.store.dispatch(updateTask({ task: updatedTask }))
-            );
+            .pipe(
+                switchMap((data) =>
+                    this.taskService.getNumberOfTaskFinishedToday()
+                )
+            )
+            .subscribe((tasks) => {
+                this.store.dispatch(updateTask({ task: updatedTask }));
+                this.store.dispatch(
+                    setNumberOfTasksFinishedToday({
+                        numberOfTasks: tasks.length,
+                    })
+                );
+            });
     }
 
     deleteTask(task: TaskItemModel): void {

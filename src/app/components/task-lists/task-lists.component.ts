@@ -7,7 +7,8 @@ import { NavigationService } from '../../services/navigation.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Store } from '@ngrx/store';
 import { setTasks } from '../../states/tasks/tasks.actions';
-import { AppState } from '../../states/app.state';
+import { TaskState } from '../../states/app.state';
+import { selectTasks } from '../../states/tasks/tasks.selectors';
 
 @Component({
     selector: 'app-task-lists',
@@ -22,7 +23,7 @@ export class TaskListsComponent implements OnInit {
         private taskService: TaskService,
         private navigationService: NavigationService,
         private spinner: NgxSpinnerService,
-        private store: Store<AppState>
+        private store: Store
     ) {}
 
     ngOnInit(): void {
@@ -36,12 +37,9 @@ export class TaskListsComponent implements OnInit {
             this.taskList = tasks;
         });
 
-        // @ts-ignore
-        this.store
-            .select('tasks')
-            .subscribe((data: { tasks: TaskItemModel[] }) => {
-                this.taskList = data.tasks;
-            });
+        this.store.select(selectTasks).subscribe((data) => {
+            this.taskList = data;
+        });
     }
 
     openModal(): void {

@@ -4,15 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { NavigationService } from '../../services/navigation.service';
 import { Store } from '@ngrx/store';
-import { map, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { TaskStatuses } from '../../interfaces/task-statuses';
-import { AppState } from '../../states/app.state';
 import {
     deleteTask,
     setNumberOfTasksFinishedToday,
     updateTask,
 } from '../../states/tasks/tasks.actions';
+import { TaskState } from '../../states/app.state';
 
 @Component({
     selector: 'app-task-details',
@@ -29,7 +28,7 @@ export class TaskDetailsComponent implements OnInit {
         private taskService: TaskService,
         private navigationService: NavigationService,
         private router: Router,
-        private store: Store<AppState>
+        private store: Store<TaskState>
     ) {}
 
     ngOnInit(): void {
@@ -51,18 +50,20 @@ export class TaskDetailsComponent implements OnInit {
     }
 
     updateData(readOnly = true): void {
-        this.taskService.updateTask(this.task).subscribe(() => {
-            this.store.dispatch(updateTask({ task: this.task }));
-        });
         this.taskService
             .getNumberOfTaskFinishedToday()
-            .subscribe((numberOfTaskArray) =>
+            .pipe(
+                tap(() => {
+                    this.taskService.updateTask(this.task).subscribe();
+                })
+            )
+            .subscribe((numberOfTaskArray) => {
                 this.store.dispatch(
                     setNumberOfTasksFinishedToday({
                         numberOfTasks: numberOfTaskArray.length,
                     })
-                )
-            );
+                );
+            });
         if (readOnly) {
             this.readOnly = true;
         }

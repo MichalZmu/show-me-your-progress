@@ -1,6 +1,6 @@
 import { TaskItemModel } from '../interfaces/task-item.model';
 
-export interface AppState {
+export interface TaskState {
     tasks: TaskItemModel[];
     numberOfTasksFinishedToday: number;
 }
