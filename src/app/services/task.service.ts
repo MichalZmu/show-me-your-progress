@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { TaskItemModel } from '../interfaces/task-item.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { number } from 'ngrx-forms/validation';
+import { NumberOfTasksPlannedForToday } from '../interfaces/number-of-tasks-planned-for-today';
 
 @Injectable({
     providedIn: 'root',
@@ -41,6 +43,21 @@ export class TaskService {
     getNumberOfTaskFinishedToday(): Observable<TaskItemModel[]> {
         return this.http.get<TaskItemModel[]>(
             `${this.apiUrl}/task/todayFinishedTasks`
+        );
+    }
+
+    setNumberOfTasksPlannedForToday(
+        quantityOfTasks: NumberOfTasksPlannedForToday
+    ): Observable<NumberOfTasksPlannedForToday> {
+        return this.http.post<NumberOfTasksPlannedForToday>(
+            `${this.apiUrl}/task/taskPlannedForToday`,
+            quantityOfTasks
+        );
+    }
+
+    getNumberOfTasksPlannedForToday(): Observable<NumberOfTasksPlannedForToday> {
+        return this.http.get<NumberOfTasksPlannedForToday>(
+            `${this.apiUrl}/task/taskPlannedForToday`
         );
     }
 }
