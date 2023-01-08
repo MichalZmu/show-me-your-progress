@@ -34,8 +34,7 @@ export class TaskStatsComponent implements OnInit {
         });
     }
 
-    setGoalForToday(event: any): void {
-        console.log(event);
+    setGoalForToday(): void {
         this.taskService
             .setNumberOfTasksPlannedForToday(this.goalForToday)
             .subscribe();

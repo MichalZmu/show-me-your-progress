@@ -7,7 +7,19 @@
             Cel na dzisiaj: <b>{{ goalForToday.quantity }}</b>
         </p>
     </div>
-    <p>Cel:</p>
+    <p>
+        Cel:
+        <span
+            *ngIf="goalForToday.quantity <= this.numberOfTaskFinishedToday"
+            class="text-success"
+            >osiągnięty</span
+        >
+        <span
+            *ngIf="goalForToday.quantity > this.numberOfTaskFinishedToday"
+            class="text-danger"
+            >nieosiągnięty</span
+        >
+    </p>
     <button class="btn btn-info" (click)="editMode = !editMode">
         Ustaw cel na dzisiaj
     </button>
@@ -17,7 +29,7 @@
         Cel na dzisiaj
         <input
             [(ngModel)]="goalForToday.quantity"
-            (change)="setGoalForToday($event)"
+            (change)="setGoalForToday()"
             type="email"
             name="taskName"
             class="goal-input form-control"
