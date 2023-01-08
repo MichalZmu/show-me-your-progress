@@ -1,10 +1,14 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgba(66, 68, 90, 1);
+    background: var(--primary-color);
 
-  &__back-button {
-
-  }
+    h1 {
+      margin: 0;
+    }
 }

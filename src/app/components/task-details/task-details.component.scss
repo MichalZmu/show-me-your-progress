@@ -1,1 +1,7 @@
-@import "../global";
+@import '../../styles/global';
+
+.tasks-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

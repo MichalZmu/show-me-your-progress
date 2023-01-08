@@ -16,38 +16,48 @@ import { AwardsComponent } from './components/awards/awards.component';
 import { AwardsListComponent } from './components/awards-list/awards-list.component';
 import { AwardItemComponent } from './components/award-item/award-item.component';
 import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { MainPageComponent } from './views/main-page/main-page.component';
 import { DefaultViewComponent } from './views/default-view/default-view.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { StoreModule } from '@ngrx/store';
+import { TasksReducer } from './states/tasks/tasks.reducer';
+import { NgrxFormsModule } from 'ngrx-forms';
+import { TaskStatsComponent } from './components/task-stats/task-stats.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LeftSidebarComponent,
-    HeaderComponent,
-    TaskListsComponent,
-    TaskItemComponent,
-    AwardsComponent,
-    AwardsListComponent,
-    AwardItemComponent,
-    AddTaskModalComponent,
-    TaskDetailsComponent,
-    MainPageComponent,
-    DefaultViewComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    SidebarModule,
-    NgbModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LeftSidebarComponent,
+        HeaderComponent,
+        TaskListsComponent,
+        TaskItemComponent,
+        AwardsComponent,
+        AwardsListComponent,
+        AwardItemComponent,
+        AddTaskModalComponent,
+        TaskDetailsComponent,
+        MainPageComponent,
+        DefaultViewComponent,
+        TaskStatsComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        SidebarModule,
+        NgbModule,
+        FormsModule,
+        NgxSpinnerModule,
+        StoreModule.forRoot({tasks: TasksReducer}),
+        NgrxFormsModule,
+        MatIconModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

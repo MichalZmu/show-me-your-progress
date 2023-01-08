@@ -1,11 +1,17 @@
-<div class="container">
-  <div class="header row">
-    <div class="col-2">
-      <button *ngIf="showBackButton" [routerLink]="goBackUrl" class="btn btn-info">Back</button>
+<div class="container-fluid">
+    <div class="header row">
+        <div class="col-2">
+            <button
+                *ngIf="showBackButton"
+                [routerLink]="goBackUrl"
+                class="show-button--info2 btn"
+            >
+                Back
+            </button>
+        </div>
+        <div class="col-8 text-center">
+            <h1>Show me your progress</h1>
+        </div>
+        <div class="col-2"></div>
     </div>
-    <div class="col-8 text-center">
-      <h1>Show me your progress</h1>
-    </div>
-    <div class="col-2"></div>
-  </div>
 </div>

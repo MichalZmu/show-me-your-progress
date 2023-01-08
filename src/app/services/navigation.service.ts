@@ -1,17 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class NavigationService {
+    goBackUrl = new Subject<string>();
 
-  goBackUrl = new Subject<string>();
+    constructor() {}
 
-  constructor() {
-  }
-
-  setGoBackUrl(url: string): void {
-    this.goBackUrl.next(url);
-  }
+    setGoBackUrl(url: string): void {
+        this.goBackUrl.next(url);
+    }
 }
