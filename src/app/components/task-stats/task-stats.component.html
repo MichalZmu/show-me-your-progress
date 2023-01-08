@@ -1,38 +1,38 @@
 <div>
     <p>
-        Liczba ukończonych zadań: <b>{{ this.numberOfTaskFinishedToday }}</b>
+        Quantity of finished tasks: <b>{{ this.numberOfTaskFinishedToday }}</b>
     </p>
     <div *ngIf="!editMode; else editGoal">
         <p>
-            Cel na dzisiaj: <b>{{ goalForToday.quantity }}</b>
+            Goal for today: <b>{{ goalForToday.quantity }}</b>
         </p>
     </div>
     <p>
-        Cel:
+        Goal:
         <span
             *ngIf="goalForToday.quantity <= this.numberOfTaskFinishedToday"
-            class="text-success"
-            >osiągnięty</span
+            class="goal goal--success"
+            >achieved</span
         >
         <span
             *ngIf="goalForToday.quantity > this.numberOfTaskFinishedToday"
-            class="text-danger"
-            >nieosiągnięty</span
+            class="goal goal--fail"
+            >not achieved</span
         >
     </p>
-    <button class="btn btn-info" (click)="editMode = !editMode">
-        Ustaw cel na dzisiaj
+    <button class="show-button--info btn" (click)="editMode = !editMode">
+        Set goal for today
     </button>
 </div>
 <ng-template #editGoal>
-    <div class="d-flex">
-        Cel na dzisiaj
+    <div class="goal__set d-flex align-items-center">
+        Goal for today:
         <input
             [(ngModel)]="goalForToday.quantity"
             (change)="setGoalForToday()"
             type="email"
             name="taskName"
-            class="goal-input form-control"
+            class="goal-input ml-1 form-control"
             id="taskName"
         />
     </div>

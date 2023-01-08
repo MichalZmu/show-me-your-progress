@@ -2,6 +2,8 @@
     background: #edecee;
     border-radius: 4px;
 
-    &__text--percentage {
-    }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
 }

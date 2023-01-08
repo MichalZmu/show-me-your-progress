@@ -1,6 +1,9 @@
 <div *ngIf="task" class="task p-4 mb-4" (click)="goToTaskDetails()">
     <div class="task__details">
+      <div class="task__header">
         <h3>{{ task.name }}</h3>
+        <mat-icon (click)="deleteTask(task); $event.stopPropagation()">close</mat-icon>
+      </div>
         <p>Task status: {{ taskStatus }}</p>
     </div>
     <div
@@ -17,21 +20,16 @@
         <button
             *ngIf="showStatusButtonInProgress"
             (click)="changeStatus(taskStatuses.InProgress)"
-            class="btn btn-warning mr-1"
+            class="show-button--warning btn mr-1"
         >
             In progress
         </button>
         <button
             *ngIf="showStatusButtonDone"
             (click)="changeStatus(taskStatuses.Done)"
-            class="btn btn-success ml-1"
+            class="show-button--success btn ml-1"
         >
             Done
-        </button>
-    </div>
-    <div (click)="$event.stopPropagation()" class="d-flex justify-content-end">
-        <button (click)="deleteTask(task)" class="btn btn-danger ml-1">
-            Delete task
         </button>
     </div>
 </div>

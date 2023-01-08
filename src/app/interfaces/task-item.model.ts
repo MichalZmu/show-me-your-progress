@@ -1,6 +1,7 @@
 import { TaskStatuses } from './task-statuses';
 
 export class TaskItemModel {
+  // tslint:disable-next-line:variable-name
     _id: string;
     name: string;
     description: string;

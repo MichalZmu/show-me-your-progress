@@ -25,6 +25,7 @@ import { StoreModule } from '@ngrx/store';
 import { TasksReducer } from './states/tasks/tasks.reducer';
 import { NgrxFormsModule } from 'ngrx-forms';
 import { TaskStatsComponent } from './components/task-stats/task-stats.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -52,8 +53,9 @@ import { TaskStatsComponent } from './components/task-stats/task-stats.component
         NgbModule,
         FormsModule,
         NgxSpinnerModule,
-        StoreModule.forRoot({ tasks: TasksReducer }),
+        StoreModule.forRoot({tasks: TasksReducer}),
         NgrxFormsModule,
+        MatIconModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
