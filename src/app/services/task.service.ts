@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { TaskItemModel } from '../interfaces/task-item.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { number } from 'ngrx-forms/validation';
 import { NumberOfTasksPlannedForToday } from '../interfaces/number-of-tasks-planned-for-today';
 
 @Injectable({
     providedIn: 'root',
 })
 export class TaskService {
-    private readonly apiUrl = 'http://localhost:3000/api';
+    private readonly apiUrl = 'https://show-me-your-progress-backend.fly.dev/api';
 
     constructor(private http: HttpClient) {}
 
