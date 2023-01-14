@@ -117,6 +117,9 @@
                             "devServerTarget": "show-me-your-progress:serve:production"
                         }
                     }
+                },
+                "deploy": {
+                    "builder": "angular-cli-ghpages:deploy"
                 }
             }
         }
