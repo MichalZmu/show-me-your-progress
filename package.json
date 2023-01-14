@@ -1,13 +1,14 @@
 {
     "name": "show-me-your-progress",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "deploy": "ng deploy --base-href=https://michalzmu.github.io/show-me-your-progress/"
     },
     "private": true,
     "dependencies": {
@@ -42,7 +43,9 @@
         "@types/jasmine": "~3.5.0",
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "^12.11.1",
+        "angular-cli-ghpages": "^1.0.5",
         "codelyzer": "^5.1.2",
+        "gh-pages": "^4.0.0",
         "jasmine-core": "~3.5.0",
         "jasmine-spec-reporter": "~4.2.1",
         "karma": "~4.3.0",
