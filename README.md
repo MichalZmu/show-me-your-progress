@@ -1,27 +1,15 @@
-# ShowMeYourProgress
+# Reserve your beach seat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+This project was created to demonstrate a simpe task manager. The application was written in TypeScript with Angular 11. All the reservations are stored in the cloud database (MongoDB) and managed by NGRX state management. For communications between database and application, I created REST API (Node.js with Express and Mongoose). For the graphic layer, I used Angular Material.
 
-## Development server
+## How it works
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It's very simple, you can add, edit and delte tasks. What is more, you can set you task goal for today and control if you reached it or not. The mechanism counts all tasks that have been closed today.
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Make sure you have the Angular CLI installed globally. I use NPM to manage the dependencies, so we strongly recommend you to use it. Run npm install to resolve all dependencies (might take a minute).
 
-## Build
+Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Live demo: [https://michalzmu.github.io/seat-and-beach-reservation/](https://michalzmu.github.io/show-me-your-progress/)
