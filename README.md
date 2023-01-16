@@ -1,6 +1,6 @@
 # Show me your progress
 
-This project was created to demonstrate a simpe task manager. The application was written in TypeScript with Angular 11. All the reservations are stored in the cloud database (MongoDB) and managed by NGRX state management. For communications between database and application, I created REST API (Node.js with Express and Mongoose). For the graphic layer, I used Angular Material.
+This project was created to demonstrate a simple task manager. The application was written in TypeScript with Angular 11. All the reservations are stored in the cloud database (MongoDB) and managed by NGRX state management. For communications between the database and the application, I created REST API (Node.js with Express and Mongoose). For the graphic layer, I used Angular Material.
 
 ## How it works
 
