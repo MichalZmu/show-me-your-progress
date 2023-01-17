@@ -1,9 +1,11 @@
 <div *ngIf="task" class="task p-4 mb-4" (click)="goToTaskDetails()">
     <div class="task__details">
-      <div class="task__header">
-        <h3>{{ task.name }}</h3>
-        <mat-icon (click)="deleteTask(task); $event.stopPropagation()">close</mat-icon>
-      </div>
+        <div class="task__header">
+            <h3>{{ task.name }}</h3>
+            <mat-icon (click)="deleteTask(task); $event.stopPropagation()"
+                >close</mat-icon
+            >
+        </div>
         <p>Task status: {{ taskStatus }}</p>
     </div>
     <div

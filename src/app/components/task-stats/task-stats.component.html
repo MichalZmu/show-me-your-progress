@@ -30,10 +30,11 @@
         <input
             [(ngModel)]="goalForToday.quantity"
             (change)="setGoalForToday()"
-            type="email"
-            name="taskName"
+            type="number"
+            name="goalForToday"
             class="goal-input ml-1 form-control"
-            id="taskName"
+            id="goalForToday"
+            min="0"
         />
     </div>
 </ng-template>
