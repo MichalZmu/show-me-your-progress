@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { setNumberOfTasksFinishedToday } from '../../states/tasks/tasks.actions';
 import { selectNumberOfTask } from '../../states/tasks/tasks.selectors';
 import { NumberOfTasksPlannedForToday } from '../../interfaces/number-of-tasks-planned-for-today';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-task-stats',
@@ -15,7 +16,11 @@ export class TaskStatsComponent implements OnInit {
     goalForToday: NumberOfTasksPlannedForToday = { quantity: 0, _id: '' };
     editMode = false;
 
-    constructor(private taskService: TaskService, private store: Store) {}
+    constructor(
+        private taskService: TaskService,
+        private store: Store,
+        private snackBar: MatSnackBar
+    ) {}
 
     ngOnInit(): void {
         this.taskService.getNumberOfTaskFinishedToday().subscribe((data) => {
@@ -35,8 +40,13 @@ export class TaskStatsComponent implements OnInit {
     }
 
     setGoalForToday(): void {
-        this.taskService
-            .setNumberOfTasksPlannedForToday(this.goalForToday)
-            .subscribe();
+        if (this.goalForToday.quantity < 0) {
+            this.snackBar.open('Must be greater than or equal to 0', 'close');
+            this.goalForToday.quantity = 0;
+        } else {
+            this.taskService
+                .setNumberOfTasksPlannedForToday(this.goalForToday)
+                .subscribe();
+        }
     }
 }

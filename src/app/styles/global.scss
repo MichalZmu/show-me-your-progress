@@ -7,38 +7,38 @@
 }
 
 .show-button {
-  &--info {
-    background: var(--primary-color);
-    color: white;
-  }
+    &--info {
+        background: var(--primary-color);
+        color: white;
+    }
 
-  &--info:hover {
-    color: white;
-  }
+    &--info:hover {
+        color: white;
+    }
 
-  &--info2 {
-    background: var(--ternary-color);
-  }
+    &--info2 {
+        background: var(--ternary-color);
+    }
 
-  &--warning {
-    background: var(--warning-color);
-    color: white;
-  }
+    &--warning {
+        background: var(--warning-color);
+        color: white;
+    }
 
-  &--warning:hover {
-    color: white;
-  }
+    &--warning:hover {
+        color: white;
+    }
 
-  &--success {
-    background: var(--success-color);
-    color: white;
-  }
+    &--success {
+        background: var(--success-color);
+        color: white;
+    }
 
-  &--success:hover {
-    color: white;
-  }
+    &--success:hover {
+        color: white;
+    }
 }
 
 mat-icon {
-  cursor: pointer;
+    cursor: pointer;
 }
