@@ -12,4 +12,4 @@ Make sure you have the Angular CLI installed globally. I use NPM to manage the d
 
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-Live demo: [https://michalzmu.github.io/seat-and-beach-reservation/](https://michalzmu.github.io/show-me-your-progress/)
+Live demo: [https://michalzmu.github.io/show-me-your-progress/](https://michalzmu.github.io/show-me-your-progress/)
