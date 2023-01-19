@@ -2,10 +2,8 @@
     <p>
         Quantity of finished tasks: <b>{{ this.numberOfTaskFinishedToday }}</b>
     </p>
-    <div *ngIf="!editMode; else editGoal">
-        <p>
-            Goal for today: <b>{{ goalForToday.quantity }}</b>
-        </p>
+    <div *ngIf="!editMode; else editGoal" class="goal__set d-flex align-items-center">
+            Goal for today: <b class="ml-1">{{ goalForToday.quantity }}</b>
     </div>
     <p>
         Goal:
