@@ -8,7 +8,7 @@ import { NumberOfTasksPlannedForToday } from '../interfaces/number-of-tasks-plan
     providedIn: 'root',
 })
 export class TaskService {
-    private readonly apiUrl = 'https://show-me-your-progress-backend-production.up.railway.app/api';
+    private readonly apiUrl = 'https://show-me-your-progress-backend.onrender.com/api';
 
     constructor(private http: HttpClient) {}
 
